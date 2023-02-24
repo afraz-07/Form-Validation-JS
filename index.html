@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Sign Up</h1>
+
+        <form action="" onsubmit="return validate()" >
+            <input type="text" placeholder="Username" id="username" class="inp"><br>
+            <p id="uerror" class="red"></p>
+
+            <input type="email" placeholder="Email" id="email" class="inp"><br>
+            <p id="eerror" class="red"></p>
+
+
+            <input type="number" placeholder="Mobile Number" id="num" class="inp"><br>
+            <p id="nerror" class="red"></p>
+
+        
+            <input type="password" placeholder="password" id="pass" class="inp"><br>
+            <p id="perror" class="red"></p>
+
+
+            <input type="password" placeholder="Confirm password" id="cnfrmpass" class="inp"><br>
+            <p id="cperror" class="red"></p>
+
+
+            <input type="submit">
+        
+        </form>
+    </div>
+
+
+    <script>
+        let  user = document.getElementById("username");
+        let email = document.getElementById("email");
+        let number = document.getElementById("num");
+        let pass = document.getElementById("pass");
+        let cnfrmpass = document.getElementById("cnfrmpass");
+        let flag = 1;
+
+        function validate(){
+            if(user.value == ""){
+                document.getElementById("uerror").innerHTML="Enter Username";
+                flag = 0;
+            }
+            else if(user.value.length < 8){
+                document.getElementById("uerror").innerHTML="Username Required 8 Character";
+                flag = 0;
+            }
+            else{
+                document.getElementById("uerror").innerHTML="";
+                flag = 1;
+            }
+
+
+
+
+            if(email.value == ""){
+                document.getElementById("eerror").innerHTML="Enter Email";
+            }
+            else if(email.value.length < 15){
+                document.getElementById("eerror").innerHTML="Email Required 15 character";
+            }
+            else{
+                document.getElementById("eerror").innerHTML="";
+            }
+
+
+
+
+            if(number.value ==""){
+                document.getElementById("nerror").innerHTML="Enter Mobile Number";
+            }
+            else if(number.value.length < 12){
+                document.getElementById("nerror").innerHTML="Mobile Number Required 12 Character";
+            }
+            else{
+                document.getElementById("nerror").innerHTML="";
+            }
+
+
+
+
+            if(pass.value == ""){
+                document.getElementById("perror").innerHTML="Enter Password";
+            }
+            else if(pass.value.length < 8){
+                document.getElementById("perror").innerHTML="Password is Weak";
+            }
+            else{
+                document.getElementById("perror").innerHTML="";
+            }
+
+            
+
+
+          
+            if(cnfrmpass.value ==""){
+                document.getElementById("cperror").innerHTML="Confirm Password"
+            }
+
+            else if(cnfrmpass.value.length < 8){
+                document.getElementById("cperror").innerHTML="Password Required 8 Character"
+            }
+
+            else if(cnfrmpass.value != pass.value){
+                document.getElementById("cperror").innerHTML="Password Incorrect"
+            }
+            
+            else{
+                document.getElementById("cperror").innerHTML="";
+            }
+
+            return false;
+        }
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
